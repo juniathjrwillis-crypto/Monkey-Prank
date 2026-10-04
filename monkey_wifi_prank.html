@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wi-Fi Surprise 🐒</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #111;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .screen {
+    text-align: center;
+    color: white;
+    padding: 24px;
+  }
+
+  .monkey {
+    font-size: clamp(120px, 28vw, 280px);
+    line-height: 1;
+    transform: scale(0.1) rotate(-15deg);
+    opacity: 0;
+    animation: pop 0.8s cubic-bezier(.17,.89,.32,1.3) 0.4s forwards;
+  }
+
+  .banana {
+    display: inline-block;
+    font-size: clamp(60px, 14vw, 130px);
+    transform: translateY(40px) rotate(-20deg);
+    opacity: 0;
+    animation: banana 0.7s ease-out 1s forwards;
+  }
+
+  h1 {
+    margin: 10px 0 0;
+    font-size: clamp(38px, 9vw, 90px);
+    font-weight: 900;
+    color: #ffe500;
+    text-shadow: 4px 4px 0 #000, -2px -2px 0 #000;
+    opacity: 0;
+    transform: scale(0.4);
+    animation: textPop 0.6s cubic-bezier(.17,.89,.32,1.3) 1.25s forwards;
+  }
+
+  p {
+    margin-top: 18px;
+    font-size: 18px;
+    opacity: 0;
+    animation: fade 0.8s ease 2s forwards;
+  }
+
+  .flash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    pointer-events: none;
+    opacity: 0;
+    animation: flash 0.25s ease 0.35s;
+  }
+
+  @keyframes pop {
+    0% { opacity: 0; transform: scale(0.1) rotate(-15deg); }
+    70% { opacity: 1; transform: scale(1.12) rotate(5deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
+  }
+
+  @keyframes banana {
+    to { opacity: 1; transform: translateY(0) rotate(-5deg); }
+  }
+
+  @keyframes textPop {
+    0% { opacity: 0; transform: scale(0.4); }
+    70% { opacity: 1; transform: scale(1.12); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes fade {
+    to { opacity: .75; }
+  }
+
+  @keyframes flash {
+    0%, 100% { opacity: 0; }
+    40% { opacity: .9; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="flash"></div>
+
+  <main class="screen">
+    <div class="monkey">🐒🖕</div>
+    <div class="banana">🍌</div>
+    <h1>Fxck U Bitch</h1>
+    <p>😂 You got pranked!</p>
+  </main>
+</body>
+</html>
